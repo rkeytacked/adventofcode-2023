@@ -49,7 +49,7 @@ function max(arr) {
     return Math.max(...arr);
 }
 
-function associate(arr, entryFunc = x => x) {
+function map(arr, entryFunc = x => x) {
     return arr.reduce((map, x) => {
         const [key, val] = entryFunc(x);
         map[key] = val;
@@ -57,18 +57,37 @@ function associate(arr, entryFunc = x => x) {
     }, {});
 }
 
+function key(items) {
+    return [...(typeof items === "object" ? items : arguments)].join(':');
+}
+
+function spanYX(y, x, dy = 1, dx = 1) {
+    return [...Array(2 * dy + 1).keys()].flatMap(j =>
+        [...Array(2 * dx + 1).keys()].map(i => [y + j - dy, x + i - dx])
+    );
+}
+
+function unique(arr) {
+    const set = new Set(arr);
+    set.delete(undefined);
+    return [...set];
+}
+
 module.exports = {
     readLines,
     readCharArrays,
     readSingletonMaps,
-    associate,
+    map,
     split,
     toNumber,
+    key,
     min,
     max,
     sort,
     sum,
     prod,
     median,
+    spanYX,
+    unique,
     log: console.log
 };
