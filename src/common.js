@@ -73,6 +73,23 @@ function unique(arr) {
     return [...set];
 }
 
+function ggT2(x, y) {
+    return y === 0 ? x : ggT2(y, x % y);
+}
+
+function ggT(x, y, ...more) {
+    if (typeof x === 'object') {
+        return ggT(...x);
+    }
+    return more.length ? ggT(ggT2(x, y), ...more) : ggT2(x, y);
+}
+
+function kgV(items) {
+    let args = [...(typeof items === "object" ? items : arguments)];
+    return prod(args) / ggT(args);
+}
+
+
 module.exports = {
     readLines,
     readCharArrays,
@@ -89,5 +106,7 @@ module.exports = {
     median,
     spanYX,
     unique,
+    kgV,
+    ggT,
     log: console.log
 };

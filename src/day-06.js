@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const {log, map, median, min, max, readCharArrays, readLines, readSingletonMaps, sort, split, sum, prod, toNumber, spanYX, unique} = require("./common");
+const {log, readLines, split, prod, toNumber} = require("./common");
 
 /* * * * * * * *
  * * DAY  06 * *
