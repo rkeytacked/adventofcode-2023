@@ -89,6 +89,10 @@ function kgV(items) {
     return prod(args) / ggT(args);
 }
 
+function range(len) {
+    return [...Array(len).keys()];
+}
+
 
 module.exports = {
     readLines,
@@ -108,5 +112,6 @@ module.exports = {
     unique,
     kgV,
     ggT,
+    range,
     log: console.log
 };
