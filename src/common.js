@@ -116,7 +116,7 @@ function unique(arr) {
 }
 
 function ggT2(x, y) {
-    return y === 0 ? x : ggT2(y, x % y);
+    return y === 0 ? Math.abs(x) : ggT2(y, x % y);
 }
 
 function ggT(x, y, ...more) {
