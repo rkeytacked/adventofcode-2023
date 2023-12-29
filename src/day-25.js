@@ -11,9 +11,9 @@ const GRAPH = new Map();
 const EDGES = [];
 lines.forEach(([from, ...nodes]) => nodes.forEach(to => {
     EDGES.push([from, to]);
-    GRAPH.has(from) || GRAPH.set(from, Object.assign(new Set(), {index: GRAPH.size}));
+    GRAPH.has(from) || GRAPH.set(from, new Set());
     GRAPH.get(from).add(to);
-    GRAPH.has(to) || GRAPH.set(to, Object.assign(new Set(), {index: GRAPH.size}));
+    GRAPH.has(to) || GRAPH.set(to, new Set());
     GRAPH.get(to).add(from);
 }));
 
